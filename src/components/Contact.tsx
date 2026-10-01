@@ -27,7 +27,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
     return localStorage.getItem("ronit_contact_email") || "contact.ronit@example.com";
   });
   const [whatsAppNumber, setWhatsAppNumber] = useState<string>(() => {
-    return localStorage.getItem("ronit_contact_whatsapp") || "+1 (555) 019-2834";
+    return localStorage.getItem("ronit_contact_whatsapp") || "+91 8872282955";
   });
 
   const [isEditingContactInfo, setIsEditingContactInfo] = useState(false);
@@ -139,7 +139,7 @@ export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
                   value={whatsAppNumber}
                   onChange={(e) => setWhatsAppNumber(e.target.value)}
                   className="w-full px-3 py-2.5 rounded-lg bg-[var(--bg-primary)] border border-[var(--border-subtle)] text-[var(--text-primary)] focus:border-[var(--color-gold)] focus:outline-none"
-                  placeholder="e.g. +1 (555) 019-2834"
+                  placeholder="e.g. +91 8872282955"
                 />
               </div>
 
