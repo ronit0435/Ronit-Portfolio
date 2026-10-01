@@ -1,6 +1,6 @@
 import React from "react";
 import { ABOUT_DATA } from "../data/portfolioData";
-import profilePhoto from "../assets/images/profile.jpeg";
+import profilePhoto from "../assets/images/Profile.jpeg";
 
 export const About: React.FC = () => {
   return (
