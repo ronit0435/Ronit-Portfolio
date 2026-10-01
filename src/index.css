@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Syne", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-midnight: var(--bg-primary);
+  --color-charcoal: var(--bg-secondary);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-dark: var(--color-gold-dark);
+  --color-electric: var(--color-electric);
+  --color-electric-light: var(--color-electric-light);
+  --color-soft-white: var(--text-primary);
+  --color-muted-silver: var(--text-secondary);
+}
+
+/* Light Theme Variables (Default) */
+:root {
+  color-scheme: light;
+  --bg-primary: #F8F8F5;
+  --bg-secondary: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.98);
+  --border-subtle: rgba(15, 18, 28, 0.08);
+  --border-glow: rgba(181, 142, 69, 0.35);
+  --text-primary: #0F121C;
+  --text-secondary: #52596B;
+  --text-muted: #828B9E;
+  
+  --color-gold: #A88133;
+  --color-gold-light: #C49E4E;
+  --color-gold-dark: #826222;
+  --color-electric: #2E58D6;
+  --color-electric-light: #537BF5;
+  
+  --panel-glass: rgba(255, 255, 255, 0.88);
+  --panel-glass-border: rgba(15, 18, 28, 0.09);
+  --scrim-gradient: linear-gradient(to top, rgba(248, 248, 245, 0.95), rgba(248, 248, 245, 0.4), transparent);
+  --badge-bg: rgba(255, 255, 255, 0.9);
+  --shadow-luxury: 0 12px 32px -8px rgba(15, 18, 28, 0.08), 0 0 20px -6px rgba(181, 142, 69, 0.12);
+}
+
+/* Dark Theme Variables */
+html.dark {
+  color-scheme: dark;
+  --bg-primary: #080A0F;
+  --bg-secondary: #11141C;
+  --bg-card: rgba(17, 20, 28, 0.7);
+  --bg-card-hover: rgba(22, 26, 37, 0.85);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-glow: rgba(214, 183, 121, 0.35);
+  --text-primary: #F5F5F2;
+  --text-secondary: #A1A5B0;
+  --text-muted: #6B7280;
+  
+  --color-gold: #D6B779;
+  --color-gold-light: #E7CF9D;
+  --color-gold-dark: #A98748;
+  --color-electric: #7C9DFF;
+  --color-electric-light: #9BB5FF;
+  
+  --panel-glass: rgba(17, 20, 28, 0.7);
+  --panel-glass-border: rgba(255, 255, 255, 0.08);
+  --scrim-gradient: linear-gradient(to top, #11141C, rgba(17, 20, 28, 0.3), transparent);
+  --badge-bg: rgba(17, 20, 28, 0.85);
+  --shadow-luxury: 0 16px 36px -12px rgba(0, 0, 0, 0.7), 0 0 24px -6px rgba(214, 183, 121, 0.15);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Luxury Glassmorphism Container */
+.glass-panel {
+  background: var(--panel-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--panel-glass-border);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+html:not(.dark) .glass-panel {
+  box-shadow: 0 4px 20px -4px rgba(0, 0, 0, 0.04);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-luxury);
+}
+
+/* Animated Gold Gradient Text */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #FFF3D6 0%, #D6B779 45%, #EED5A1 75%, #B38E46 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s linear infinite;
+}
+
+html:not(.dark) .gold-gradient-text {
+  background: linear-gradient(135deg, #8C6A24 0%, #B58E45 45%, #D4AE5E 75%, #8C6A24 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+/* Electric glow */
+.electric-glow {
+  text-shadow: 0 0 20px rgba(124, 157, 255, 0.4);
+}
+html:not(.dark) .electric-glow {
+  text-shadow: 0 0 16px rgba(46, 88, 214, 0.25);
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
