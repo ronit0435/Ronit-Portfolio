@@ -24,7 +24,7 @@ interface ContactProps {
 export const Contact: React.FC<ContactProps> = ({ selectedServicePreset }) => {
   // Contact details with editable placeholders as requested
   const [emailAddress, setEmailAddress] = useState<string>(() => {
-    return localStorage.getItem("ronit_contact_email") || "contact.ronit@example.com";
+    return localStorage.getItem("ronit_contact_email") || "ronit201103@gmail.com";
   });
   const [whatsAppNumber, setWhatsAppNumber] = useState<string>(() => {
     return localStorage.getItem("ronit_contact_whatsapp") || "+91 8872282955";
